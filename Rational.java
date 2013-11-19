@@ -17,7 +17,10 @@ public class Rational {
     public Rational( int n, int d) {
 	String message;
 	if (d == 0) {
-	    message = "Invalid denominator. Cannot be 0.";
+	    message = "Invalid denominator. Cannot be 0, changing to 1.";
+	    
+	    num = n;
+	    den = 1;
 
 	System.out.print(message);
 	}
@@ -44,9 +47,14 @@ public class Rational {
 
 
     public void divide(Rational foo) {
+	if (foo.num != 0) {
 	num *= (foo.den);
 
 	den *= (foo.num);
+    }
+    else {
+    	System.out.println("Cannot divide by 0")
+    }
     }
 
     public String toString() {
